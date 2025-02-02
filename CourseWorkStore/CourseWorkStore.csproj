@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="AppIcons\AddOrEditIcon.png" />
+    <None Remove="AppIcons\AuthIcon.png" />
+    <None Remove="AppIcons\DoneIcon.png" />
+    <None Remove="AppIcons\InfoIcon.png" />
+    <None Remove="AppIcons\SystemIcon.png" />
+    <None Remove="AppIcons\WarningIcon.png" />
+    <None Remove="AuthIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="AppIcons\AddOrEditIcon.png" />
+    <Resource Include="AppIcons\AuthIcon.png" />
+    <Resource Include="AppIcons\DoneIcon.png" />
+    <Resource Include="AppIcons\InfoIcon.png" />
+    <Resource Include="AppIcons\SystemIcon.png" />
+    <Resource Include="AppIcons\WarningIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="MessageBoxes\FieldsIsEmpty.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>

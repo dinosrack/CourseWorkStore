@@ -1,0 +1,112 @@
+﻿<Window x:Class="CourseWorkStore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Title="Таблица" WindowState="Maximized"
+        MinWidth="1280" MinHeight="720" Icon="AppIcons/SystemIcon.png" Cursor="" Loaded="Window_Loaded">
+
+    <Grid Background="#1E1E1E">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,50,0,50">
+            <Button x:Name="Add"
+                    Style="{StaticResource ButtonAddMain}"
+                    Click="Add_Click"/>
+
+            <Border Margin="10" x:Name="BorderMargin1"/>
+
+            <Button x:Name="Edit" 
+                    Content="Редактировать"
+                    Style="{StaticResource ButtonEditMain}"
+                    Click="Edit_Click"/>
+
+            <Border Margin="10" x:Name="BorderMargin2"/>
+
+            <Button x:Name="Remove"
+                    Style="{StaticResource ButtonRemoveMain}"
+                    Click="Remove_Click"/>
+
+            <Border Height="2" Background="#2A2A2A" 
+                    Width="200"
+                    Margin="0,20,0,20"
+                    x:Name="BorderAdmin" Cursor=""/>
+
+            <Label Content="Введи код для поиска:"/>
+
+            <Border Margin="10"/>
+
+            <TextBox x:Name="ID"
+                     Height="35"/>
+
+            <Border Margin="10"/>
+
+            <Button x:Name="Find"
+                    Style="{StaticResource ButtonFindMain}"
+                    Click="Find_Click"/>
+
+            <Border Height="2" Background="#2A2A2A" 
+                    Width="200"
+                    Margin="0,20,0,20"/>
+
+            <Button x:Name="Exit"
+                    Content="Выйти из ИС"
+                    Style="{StaticResource ButtonRemoveMain}" Cursor="Hand"
+                    Click="Exit_Click"/>
+        </StackPanel>
+
+        <TabControl Grid.Column="1" Margin="50" x:Name="Tab">
+            <TabItem Header="Товары">
+                <DataGrid x:Name="Table" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID товара" Binding="{Binding ProductId}"/>
+                        <DataGridTextColumn Header="Название" Binding="{Binding ProductName}"/>
+                        <DataGridTextColumn Header="Описание" Binding="{Binding ProductDescription}"/>
+                        <DataGridTextColumn Header="Цена" Binding="{Binding ProductPrice}"/>
+                        <DataGridTextColumn Header="Количество" Binding="{Binding ProductQuantity}"/>
+                        <DataGridTextColumn Header="ID поставщика" Binding="{Binding SupplierId}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Заказы">
+                <DataGrid x:Name="Table2" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID заказа" Binding="{Binding PurchaseId}"/>
+                        <DataGridTextColumn Header="ID товара" Binding="{Binding ProductId}"/>
+                        <DataGridTextColumn Header="Количество" Binding="{Binding PurchaseQuantity}"/>
+                        <DataGridTextColumn Header="Цена" Binding="{Binding PurchaseAmount}"/>
+                        <DataGridTextColumn Header="Дата" Binding="{Binding PurchaseDate}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Поставщики">
+                <DataGrid x:Name="Table3" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID поставщика" Binding="{Binding SupplierId}"/>
+                        <DataGridTextColumn Header="Имя" Binding="{Binding SupplierName}"/>
+                        <DataGridTextColumn Header="Телефон" Binding="{Binding SupplierPhone}"/>
+                        <DataGridTextColumn Header="Почта" Binding="{Binding SupplierEmail}"/>
+                        <DataGridTextColumn Header="Адрес" Binding="{Binding SupplierAddress}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Пользователи">
+                <DataGrid x:Name="Table4" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID пользователя" Binding="{Binding UserId}"/>
+                        <DataGridTextColumn Header="Логин" Binding="{Binding Username}"/>
+                        <DataGridTextColumn Header="Пароль" Binding="{Binding Pass}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
